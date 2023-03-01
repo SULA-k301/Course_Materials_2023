@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/firstTaskContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/secondTaskContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/task1Image"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:src="@drawable/math_task"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/task1xInputField"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/enter_x"
+                android:inputType="numberDecimal"
+                android:paddingHorizontal="8dp"
+                android:textColor="#3f2b96"
+                android:textColorHint="#803F2B96"
+                app:layout_constraintEnd_toStartOf="@id/task1nInputField"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task1Image" />
+
+            <EditText
+                android:id="@+id/task1nInputField"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/enter_n"
+                android:inputType="number"
+                android:paddingHorizontal="8dp"
+                android:textColor="#3f2b96"
+                android:textColorHint="#803F2B96"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/task1xInputField"
+                app:layout_constraintTop_toTopOf="@id/task1xInputField" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/task1GetResultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#3f2b96"
+                android:paddingHorizontal="60dp"
+                android:text="@string/get_result"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task1xInputField" />
+
+            <TextView
+                android:id="@+id/task1ResultField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#3f2b96"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task1GetResultButton"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/secondTaskContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstTaskContainer">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/task2Description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/task2"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/task2InputField"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/enter_text"
+                android:inputType="textCapCharacters"
+                android:paddingHorizontal="8dp"
+                android:textColor="#3f2b96"
+                android:textColorHint="#803F2B96"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task2Description" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/task2GetResultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#3f2b96"
+                android:paddingHorizontal="60dp"
+                android:text="@string/get_result"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task2InputField" />
+
+            <TextView
+                android:id="@+id/task2ResultField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#3f2b96"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task2GetResultButton"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

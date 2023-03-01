@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Laboratory_1_Example</string>
+    <string name="task2">Підрахувати кількість цифр, які містяться у введеному рядку</string>
+    <string name="enter_x">Enter x</string>
+    <string name="enter_n">Enter n</string>
+    <string name="get_result">Get Result</string>
+    <string name="enter_text">Enter text</string>
+</resources>
