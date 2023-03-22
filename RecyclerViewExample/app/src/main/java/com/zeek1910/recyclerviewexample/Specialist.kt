@@ -9,4 +9,4 @@ data class Specialist(
     val experience: Int,
     val distance: Float,
     val visitPrice: Int
-)
+) : java.io.Serializable

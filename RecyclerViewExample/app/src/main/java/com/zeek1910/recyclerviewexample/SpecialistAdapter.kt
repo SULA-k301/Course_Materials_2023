@@ -12,6 +12,9 @@ class SpecialistAdapter : RecyclerView.Adapter<SpecialistAdapter.SpecialistViewH
 
     private val items: MutableList<Specialist> = mutableListOf()
 
+    var clickListener: OnItemClickListener? = null
+    var longClickListener: ((position: Int)-> Unit)? = null
+
     fun setItems(items: List<Specialist>) {
         this.items.clear()
         this.items.addAll(items)
@@ -26,6 +29,13 @@ class SpecialistAdapter : RecyclerView.Adapter<SpecialistAdapter.SpecialistViewH
 
     override fun onBindViewHolder(holder: SpecialistViewHolder, position: Int) {
         holder.bind(items[position])
+        holder.itemView.setOnClickListener {
+            clickListener?.onItemClick(items[position])
+        }
+        holder.itemView.setOnLongClickListener {
+                longClickListener?.invoke(position)
+            true
+        }
     }
 
     override fun getItemCount() = items.size
@@ -49,5 +59,9 @@ class SpecialistAdapter : RecyclerView.Adapter<SpecialistAdapter.SpecialistViewH
             Glide.with(profileImage).load(item.imageUrl).into(profileImage)
         }
 
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(item: Specialist)
     }
 }
