@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 
@@ -28,7 +29,10 @@ class AddItemFragment : Fragment() {
         addVideoButton = view.findViewById(R.id.addVideoButton)
 
         addPhotoButton.setOnClickListener {
-            view.findNavController().navigate(R.id.action_addItemFragment_to_createPhotoFragment)
+            val bundle = bundleOf(
+                "item" to ItemModel("Evhen", 30, 0.7f)
+            )
+            view.findNavController().navigate(R.id.action_addItemFragment_to_createPhotoFragment, bundle)
         }
         addVideoButton.setOnClickListener {
             view.findNavController().navigate(R.id.action_addItemFragment_to_createVideoFragment)
