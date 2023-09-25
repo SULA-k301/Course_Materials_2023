@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class SignInActivity : AppCompatActivity() {
 
+    private lateinit var appSettings: AppSettings
+
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
 
@@ -20,6 +22,8 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
+        appSettings = AppSettings(this)
 
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
@@ -40,20 +44,21 @@ class SignInActivity : AppCompatActivity() {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
         if (checkCredentialData(email, password)){
-            Toast.makeText(this, "Login success", Toast.LENGTH_SHORT).show()
+            appSettings.setIsLoginSuccess()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }else{
             Toast.makeText(this, "Login failure", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun checkCredentialData(email: String, password: String): Boolean {
-        return email == EMAIL && password == PASSWORD
+        val savedUser = appSettings.getSavedUser() ?: return false
+        return email == savedUser.email && password == savedUser.password
     }
 
     companion object {
-        const val EMAIL = "example@gmail.com"
-        const val PASSWORD = "12345"
-
         const val KEY_EMAIL = "KEY_EMAIL"
     }
 }
