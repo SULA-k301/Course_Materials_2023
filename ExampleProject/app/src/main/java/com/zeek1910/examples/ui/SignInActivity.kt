@@ -1,4 +1,4 @@
-package com.zeek1910.examples
+package com.zeek1910.examples.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.zeek1910.examples.R
+import com.zeek1910.examples.data.AppSettings
 
 class SignInActivity : AppCompatActivity() {
 

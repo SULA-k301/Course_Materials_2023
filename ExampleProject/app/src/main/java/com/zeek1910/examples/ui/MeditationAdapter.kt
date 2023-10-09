@@ -1,4 +1,4 @@
-package com.zeek1910.examples
+package com.zeek1910.examples.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.zeek1910.examples.R
+import com.zeek1910.examples.models.MeditationItem
 
 
 class MeditationAdapter : RecyclerView.Adapter<MeditationAdapter.MeditationViewHolder>() {

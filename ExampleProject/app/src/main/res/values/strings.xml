@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Example Project</string>
+
+
+    <string name="onboarding_page_1_title">WELCOME TO Monumental habits</string>
+    <string name="onboarding_page_2_title">CREATE NEW HABIT EASILY</string>
+    <string name="onboarding_page_3_title">KEEP TRACK OF YOUR PROGRESS</string>
+    <string name="onboarding_page_4_title">JOIN A SUPPORTIVE COMMUNITY</string>
+    <string name="onboarding_page_sub_title">We can help you to be a better version of yourself.</string>
 </resources>

@@ -1,10 +1,13 @@
-package com.zeek1910.examples
+package com.zeek1910.examples.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.zeek1910.examples.R
+import com.zeek1910.examples.data.AppSettings
+import com.zeek1910.examples.models.User
 
 class SignUpActivity : AppCompatActivity() {
 
