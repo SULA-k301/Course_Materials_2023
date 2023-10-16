@@ -25,7 +25,7 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        appSettings = AppSettings(this)
+        appSettings = (application as App).appSettings
 
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)

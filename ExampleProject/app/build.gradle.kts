@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.zeek1910.examples"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.zeek1910.examples"
@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.activity:activity-ktx:1.8.0")
     implementation("com.tbuonomo:dotsindicator:5.0")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

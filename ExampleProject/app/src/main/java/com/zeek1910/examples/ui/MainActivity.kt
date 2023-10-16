@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        appSettings = AppSettings(this)
+        appSettings = (application as App).appSettings
 
         buttonLogOut = findViewById(R.id.buttonLogOut)
         recyclerView = findViewById(R.id.recyclerView)

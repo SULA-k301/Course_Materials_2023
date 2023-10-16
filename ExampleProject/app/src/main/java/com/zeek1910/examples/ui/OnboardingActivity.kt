@@ -25,7 +25,7 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
-        appSettings = AppSettings(this)
+        appSettings = (application as App).appSettings
 
         viewPager = findViewById(R.id.viewPager)
         buttonSkip = findViewById(R.id.buttonSkip)

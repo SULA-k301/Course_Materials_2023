@@ -21,7 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        appSettings = AppSettings(this)
+        appSettings = (application as App).appSettings
 
         nameEditText = findViewById(R.id.name)
         emailEditText = findViewById(R.id.email)
