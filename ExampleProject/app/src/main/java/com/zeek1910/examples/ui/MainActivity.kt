@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zeek1910.examples.R
 import com.zeek1910.examples.data.AppSettings
 import com.zeek1910.examples.models.MeditationItem
@@ -14,8 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appSettings: AppSettings
 
-    private lateinit var buttonLogOut: Button
-    private lateinit var recyclerView: RecyclerView
+//    private lateinit var buttonLogOut: Button
+//    private lateinit var recyclerView: RecyclerView
 
     private val meditationAdapter = MeditationAdapter()
 
@@ -23,24 +26,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        appSettings = (application as App).appSettings
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            .setupWithNavController(navController)
 
-        buttonLogOut = findViewById(R.id.buttonLogOut)
-        recyclerView = findViewById(R.id.recyclerView)
 
-        setupRecyclerView()
-        meditationAdapter.setItems(getItems())
+       // appSettings = (application as App).appSettings
 
-        buttonLogOut.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
-            appSettings.logout()
-        }
+//        buttonLogOut = findViewById(R.id.buttonLogOut)
+//        recyclerView = findViewById(R.id.recyclerView)
+
+        //setupRecyclerView()
+        //meditationAdapter.setItems(getItems())
+
+//        buttonLogOut.setOnClickListener {
+//            val intent = Intent(this, SignInActivity::class.java)
+//            startActivity(intent)
+//            appSettings.logout()
+//        }
     }
 
     private fun setupRecyclerView() {
-        recyclerView.adapter = meditationAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+//        recyclerView.adapter = meditationAdapter
+//        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
     private fun getItems(): List<MeditationItem> {

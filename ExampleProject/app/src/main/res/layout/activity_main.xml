@@ -6,28 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
-        android:paddingHorizontal="18dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_meditation"
-        app:layout_constraintBottom_toTopOf="@id/buttonLogOut"
-        android:layout_height="0dp"/>
+        app:navGraph="@navigation/main_nav_graph" />
 
-    <Button
-        android:id="@+id/buttonLogOut"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:gravity="center"
-        android:text="Log out"
+        app:labelVisibilityMode="unlabeled"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:menu="@menu/main_menu" />
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/recyclerView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:paddingHorizontal="18dp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:listitem="@layout/item_meditation"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/buttonLogOut"-->
+    <!--        android:layout_height="0dp"/>-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/buttonLogOut"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="20dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="Log out"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.6"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.499" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

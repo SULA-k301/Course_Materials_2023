@@ -7,4 +7,6 @@
     <string name="onboarding_page_3_title">KEEP TRACK OF YOUR PROGRESS</string>
     <string name="onboarding_page_4_title">JOIN A SUPPORTIVE COMMUNITY</string>
     <string name="onboarding_page_sub_title">We can help you to be a better version of yourself.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
