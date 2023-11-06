@@ -1,8 +1,7 @@
-package com.zeek1910.examples.ui
+package com.zeek1910.examples.ui.activities.onboarding
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +10,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import com.zeek1910.examples.R
 import com.zeek1910.examples.data.AppSettings
+import com.zeek1910.examples.App
+import com.zeek1910.examples.ui.activities.SignInActivity
 
 class OnboardingActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.zeek1910.examples.ui
+package com.zeek1910.examples.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.zeek1910.examples.ui
+package com.zeek1910.examples.ui.activities
 
 import android.view.LayoutInflater
 import android.view.View

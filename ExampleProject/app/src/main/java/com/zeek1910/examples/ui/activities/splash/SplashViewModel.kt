@@ -1,10 +1,13 @@
-package com.zeek1910.examples.ui
+package com.zeek1910.examples.ui.activities.splash
 
 import android.app.Application
-import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.zeek1910.examples.App
+import com.zeek1910.examples.ui.activities.MainActivity
+import com.zeek1910.examples.ui.activities.onboarding.OnboardingActivity
+import com.zeek1910.examples.ui.activities.SignInActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
