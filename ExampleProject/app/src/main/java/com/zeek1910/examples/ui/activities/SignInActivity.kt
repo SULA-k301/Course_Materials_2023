@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.zeek1910.examples.R
 import com.zeek1910.examples.data.AppSettings
 import com.zeek1910.examples.App
+import com.zeek1910.examples.ui.signup.SignUpActivity
 
 class SignInActivity : AppCompatActivity() {
 

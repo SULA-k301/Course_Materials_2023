@@ -1,41 +1,54 @@
 package com.zeek1910.examples.ui.activities.splash
 
-import android.app.Application
-import android.content.Intent
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import com.zeek1910.examples.App
-import com.zeek1910.examples.ui.activities.MainActivity
-import com.zeek1910.examples.ui.activities.onboarding.OnboardingActivity
-import com.zeek1910.examples.ui.activities.SignInActivity
+import com.zeek1910.examples.data.AppSettings
+import com.zeek1910.examples.data.repositories.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashViewModel(application: Application) : AndroidViewModel(application) {
+class SplashViewModel(
+    private val userRepository: UserRepository,
+    private val appSettings: AppSettings
+) : ViewModel() {
 
-    private val _eventChannel = Channel<Event>()
-    val eventChannel: ReceiveChannel<Event> get() = _eventChannel
-
-    private val appSettings = (application as App).appSettings
-
-    private val context = application.applicationContext
+    private val _actionChannel = Channel<Action>()
+    val actionChannel: ReceiveChannel<Action> get() = _actionChannel
 
     fun init() {
         viewModelScope.launch(Dispatchers.IO) {
             delay(1000)
-            val intent = when {
-                appSettings.isFirstLaunch -> Intent(context, OnboardingActivity::class.java)
-                appSettings.isUserLogin() -> Intent(context, MainActivity::class.java)
-                else -> Intent(context, SignInActivity::class.java)
+            val action = when {
+                appSettings.isFirstLaunch -> Action.NavigateToOnboarding
+                userRepository.isUserLogin() -> Action.NavigateToMain
+                else -> Action.NavigateToSignIn
             }
-            _eventChannel.send(Event.NavigateTo(intent))
+            _actionChannel.send(action)
         }
     }
 
-    sealed class Event {
-        data class NavigateTo(val intent: Intent) : Event()
+    sealed class Action {
+        object NavigateToOnboarding : Action()
+        object NavigateToMain : Action()
+        object NavigateToSignIn : Action()
+    }
+
+    companion object {
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                val userRepository =
+                    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as App).userRepository
+                val appSettings =
+                    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as App).appSettings
+                SplashViewModel(userRepository, appSettings)
+            }
+        }
     }
 }

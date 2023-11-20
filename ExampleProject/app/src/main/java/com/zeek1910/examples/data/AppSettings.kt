@@ -7,14 +7,6 @@ class AppSettings(context: Context) {
 
     private val sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-    fun saveUser(user: User) {
-        sharedPref.edit()
-            .putString(KEY_USER_NAME, user.name)
-            .putString(KEY_USER_EMAIL, user.email)
-            .putString(KEY_USER_PASSWORD, user.password)
-            .apply()
-    }
-
     fun getSavedUser(): User? {
         val name = sharedPref.getString(KEY_USER_NAME, null)
         val email = sharedPref.getString(KEY_USER_EMAIL, null)
@@ -25,16 +17,8 @@ class AppSettings(context: Context) {
         return User(name, email, password)
     }
 
-    fun isUserLogin(): Boolean {
-        return sharedPref.getBoolean(KEY_IS_LOGIN, false)
-    }
-
     fun setIsLoginSuccess() {
         sharedPref.edit().putBoolean(KEY_IS_LOGIN, true).apply()
-    }
-
-    fun logout() {
-        sharedPref.edit().putBoolean(KEY_IS_LOGIN, false).apply()
     }
 
     var isFirstLaunch: Boolean

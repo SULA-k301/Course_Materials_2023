@@ -3,17 +3,26 @@ package com.zeek1910.examples
 import android.app.Application
 import com.zeek1910.examples.data.AppSettings
 import com.zeek1910.examples.data.repositories.FakeMeditationRepository
+import com.zeek1910.examples.data.repositories.FakeUserRepository
 import com.zeek1910.examples.data.repositories.MeditationRepository
+import com.zeek1910.examples.data.repositories.UserRepository
 
 class App: Application() {
 
-    lateinit var appSettings: AppSettings
-    lateinit var meditationRepository: MeditationRepository
+    private var _appSettings: AppSettings? = null
+    val appSettings get() = requireNotNull(_appSettings)
+
+    private var _meditationRepository: MeditationRepository? = null
+    val meditationRepository get() = requireNotNull(_meditationRepository)
+
+    private var _userRepository: UserRepository? = null
+    val userRepository get() = requireNotNull(_userRepository)
 
     override fun onCreate() {
         super.onCreate()
 
-        appSettings = AppSettings(this)
-        meditationRepository = FakeMeditationRepository()
+        _appSettings = AppSettings(this)
+        _meditationRepository = FakeMeditationRepository()
+        _userRepository = FakeUserRepository()
     }
 }
