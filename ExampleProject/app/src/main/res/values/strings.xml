@@ -9,4 +9,10 @@
     <string name="onboarding_page_sub_title">We can help you to be a better version of yourself.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tools_mood_journal_title">Mood Journal</string>
+    <string name="tools_mood_booster_title">Mood Booster</string>
+    <string name="tools_positive_notes_title">Positive Notes</string>
+    <string name="tools_trigger_plan_title">Trigger Plan</string>
+    <string name="tools_goal_trainer_title">Goal Trainer</string>
 </resources>

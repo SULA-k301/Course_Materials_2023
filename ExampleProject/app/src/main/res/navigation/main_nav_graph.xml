@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/activitiesFragment"
-        android:name="com.zeek1910.examples.ui.fragments.ActivitiesFragment"
+        android:name="com.zeek1910.examples.ui.fragments.activities.ActivitiesFragment"
         android:label="ActivitiesFragment" />
     <fragment
         android:id="@+id/profileFragment"
