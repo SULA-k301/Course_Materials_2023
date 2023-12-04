@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.zeek1910.examples.R
 import com.zeek1910.examples.ui.activities.MainActivity
-import com.zeek1910.examples.ui.activities.SignInActivity
+import com.zeek1910.examples.ui.activities.signin.SignInActivity
 import com.zeek1910.examples.ui.activities.onboarding.OnboardingActivity
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

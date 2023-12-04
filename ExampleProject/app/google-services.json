@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "273656572987",
+    "project_id": "exampleproject-b24a0",
+    "storage_bucket": "exampleproject-b24a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273656572987:android:f02c122f1ffe76616bc01e",
+        "android_client_info": {
+          "package_name": "com.zeek1910.examples"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkdyQYskyUN96wfQzIk_g9r5zJpsnGnqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

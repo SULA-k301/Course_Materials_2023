@@ -4,6 +4,7 @@ import android.app.Application
 import com.zeek1910.examples.data.AppSettings
 import com.zeek1910.examples.data.repositories.FakeMeditationRepository
 import com.zeek1910.examples.data.repositories.FakeUserRepository
+import com.zeek1910.examples.data.repositories.FirebaseUserRepository
 import com.zeek1910.examples.data.repositories.MeditationRepository
 import com.zeek1910.examples.data.repositories.UserRepository
 
@@ -23,6 +24,6 @@ class App: Application() {
 
         _appSettings = AppSettings(this)
         _meditationRepository = FakeMeditationRepository()
-        _userRepository = FakeUserRepository()
+        _userRepository = FirebaseUserRepository()
     }
 }

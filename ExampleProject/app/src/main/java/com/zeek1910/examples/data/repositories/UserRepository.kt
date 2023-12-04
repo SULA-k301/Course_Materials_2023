@@ -8,7 +8,7 @@ interface UserRepository {
 
     suspend fun signUp(userName: String, email: String, password: String): User?
 
-    suspend fun signIn(email: String, password: String): User
+    suspend fun signIn(email: String, password: String): User?
 
     suspend fun logout()
 }

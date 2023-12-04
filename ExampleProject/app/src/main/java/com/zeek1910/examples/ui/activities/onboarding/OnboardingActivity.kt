@@ -11,7 +11,7 @@ import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import com.zeek1910.examples.R
 import com.zeek1910.examples.data.AppSettings
 import com.zeek1910.examples.App
-import com.zeek1910.examples.ui.activities.SignInActivity
+import com.zeek1910.examples.ui.activities.signin.SignInActivity
 
 class OnboardingActivity : AppCompatActivity() {
 

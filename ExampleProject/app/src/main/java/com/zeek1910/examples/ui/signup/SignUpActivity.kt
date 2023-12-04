@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.zeek1910.examples.R
 import com.zeek1910.examples.ui.activities.MainActivity
-import com.zeek1910.examples.ui.activities.SignInActivity
+import com.zeek1910.examples.ui.activities.signin.SignInActivity
 import com.zeek1910.examples.utils.showToast
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
