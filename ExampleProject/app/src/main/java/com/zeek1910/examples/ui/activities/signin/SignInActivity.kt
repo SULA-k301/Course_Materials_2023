@@ -13,7 +13,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.zeek1910.examples.R
 import com.zeek1910.examples.ui.activities.MainActivity
-import com.zeek1910.examples.ui.signup.SignUpActivity
+import com.zeek1910.examples.ui.activities.signup.SignUpActivity
 import com.zeek1910.examples.utils.showToast
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

@@ -1,4 +1,4 @@
-package com.zeek1910.examples.ui.signup
+package com.zeek1910.examples.ui.fragments.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,6 +7,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.zeek1910.examples.App
 import com.zeek1910.examples.data.repositories.UserRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,38 +16,44 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.getAndUpdate
 import kotlinx.coroutines.launch
 
-class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() {
+class ProfileViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(State())
     val state: StateFlow<State> get() = _state.asStateFlow()
 
-    private val _action = Channel<Action>(capacity = Channel.CONFLATED)
-    val action: ReceiveChannel<Action> get() = _action
+    private val _event = Channel<Event>(capacity = Channel.CONFLATED)
+    val event: ReceiveChannel<Event> get() = _event
 
-    fun signUp(name: String, email: String, password: String) = viewModelScope.launch {
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            _action.send(Action.IncorrectDataError)
-            return@launch
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            val user = userRepository.getCurrentUser()
+            _state.getAndUpdate {
+                it.copy(
+                    profileImageUrl = user.profileImageUrl,
+                    profileName = user.name,
+                    profileLocation = user.location
+                )
+            }
         }
-        _state.getAndUpdate { it.copy(isProgress = true) }
-        val user = userRepository.signUp(name, email, password)
-        if (user == null) {
-            _action.send(Action.RegisterError)
-        } else {
-            _action.send(Action.RegisterSuccessfully)
-        }
-        _state.getAndUpdate { it.copy(isProgress = false) }
+
     }
 
+    fun onLogoutClick() = viewModelScope.launch(Dispatchers.IO) {
+        _state.getAndUpdate { it.copy(isProgress = true) }
+        userRepository.logout()
+        _state.getAndUpdate { it.copy(isProgress = false) }
+        _event.send(Event.GoToSignInScreen)
+    }
 
     data class State(
-        val isProgress: Boolean = false
+        val isProgress: Boolean = false,
+        val profileImageUrl: String? = null,
+        val profileName: String = "",
+        val profileLocation: String? = null
     )
 
-    sealed class Action {
-        object RegisterError : Action()
-        object IncorrectDataError : Action()
-        object RegisterSuccessfully : Action()
+    sealed class Event {
+        object GoToSignInScreen : Event()
     }
 
     companion object {
@@ -54,7 +61,7 @@ class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() 
             initializer {
                 val userRepository =
                     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as App).userRepository
-                SignUpViewModel(userRepository)
+                ProfileViewModel(userRepository)
             }
         }
     }

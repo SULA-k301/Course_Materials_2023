@@ -26,7 +26,7 @@ class SplashViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             delay(1000)
             val action = when {
-                appSettings.isFirstLaunch -> Action.NavigateToOnboarding
+                appSettings.isShowOnboarding -> Action.NavigateToOnboarding
                 userRepository.isUserLogin() -> Action.NavigateToMain
                 else -> Action.NavigateToSignIn
             }

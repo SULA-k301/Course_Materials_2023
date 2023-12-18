@@ -1,4 +1,4 @@
-package com.zeek1910.examples.ui.signup
+package com.zeek1910.examples.ui.activities.signup
 
 import android.content.Intent
 import android.os.Bundle

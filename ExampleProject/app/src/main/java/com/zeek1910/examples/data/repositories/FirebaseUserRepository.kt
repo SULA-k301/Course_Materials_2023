@@ -3,6 +3,7 @@ package com.zeek1910.examples.data.repositories
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.zeek1910.examples.models.User
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 
 class FirebaseUserRepository : UserRepository {
@@ -21,7 +22,7 @@ class FirebaseUserRepository : UserRepository {
             } else {
                 null
             }
-        } catch (e: FirebaseAuthInvalidCredentialsException) {
+        } catch (e: Exception) {
             null
         }
 
@@ -42,6 +43,16 @@ class FirebaseUserRepository : UserRepository {
     }
 
     override suspend fun logout() {
+        delay(500)
         firebaseAuth.signOut()
+    }
+
+    override suspend fun getCurrentUser(): User {
+        return User(
+            "Afreen Khan",
+            "",
+            "https://s.hdnux.com/photos/51/23/24/10827008/4/1200x0.jpg",
+            "Lucknow, India"
+        )
     }
 }

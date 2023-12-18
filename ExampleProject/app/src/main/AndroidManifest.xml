@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -29,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.signup.SignUpActivity"
+            android:name=".ui.activities.signup.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.signin.SignInActivity"

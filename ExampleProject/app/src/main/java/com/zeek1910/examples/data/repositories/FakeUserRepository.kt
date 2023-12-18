@@ -20,4 +20,8 @@ class FakeUserRepository: UserRepository {
     override suspend fun logout() {
         TODO("Not yet implemented")
     }
+
+    override suspend fun getCurrentUser(): User {
+        TODO("Not yet implemented")
+    }
 }

@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.activity:activity-ktx:1.8.0")
     implementation("com.tbuonomo:dotsindicator:5.0")
     implementation("androidx.core:core-ktx:1.9.0")
